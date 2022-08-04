@@ -400,6 +400,7 @@ public class InsuranceRateProviderSystemTests
     public void Test11AllValidInformation_InputMyInformationAge29Experience10Accidents0_Expected1800()
     {
         driver.Navigate().GoToUrl(baseURL);
+
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Ronglin");
@@ -427,6 +428,8 @@ public class InsuranceRateProviderSystemTests
         driver.FindElement(By.Id("accidents")).Click();
         driver.FindElement(By.Id("accidents")).SendKeys("0");
         driver.FindElement(By.Id("btnSubmit")).Click();
+
+
         {
             string value = driver.FindElement(By.Name("finalQuote")).GetAttribute("value");
             Assert.That(value, Is.EqualTo("$1800"));
